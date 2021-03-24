@@ -1,0 +1,48 @@
+﻿@model Movie
+<!--Form for passing a selected object's values ot the Edit.cshtml page-->
+
+@if (Model.Title.ToLower() == "independence day")
+{
+
+}
+else
+{
+    <tr>
+        <td>@Model.Category </td>
+        <td>@Model.Title</td>
+        <td>@Model.Year</td>
+        <td>@Model.Director</td>
+        <td>@Model.Rating</td>
+        <td>@Model.Edited</td>
+        <td>@Model.Lent</td>
+        <td>@Model.Notes</td>
+        <td>
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="MovieID" value="@Model.MovieID" />
+                <input type="hidden" asp-for="Category" value="@Model.Category" />
+                <input type="hidden" asp-for="Title" value="@Model.Title" />
+                <input type="hidden" asp-for="Year" value="@Model.Year" />
+                <input type="hidden" asp-for="Director" value="@Model.Director" />
+                <input type="hidden" asp-for="Rating" value="@Model.Rating" />
+                <input type="hidden" asp-for="Edited" value="@Model.Edited" />
+                <input type="hidden" asp-for="Lent" value="@Model.Lent" />
+                <input type="hidden" asp-for="Notes" value="@Model.Notes" />
+                <button class="btn btn-warning" type="submit">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="MovieID" value="@Model.MovieID" />
+                <input type="hidden" asp-for="Category" value="@Model.Category" />
+                <input type="hidden" asp-for="Title" value="@Model.Title" />
+                <input type="hidden" asp-for="Year" value="@Model.Year" />
+                <input type="hidden" asp-for="Director" value="@Model.Director" />
+                <input type="hidden" asp-for="Rating" value="@Model.Rating" />
+                <input type="hidden" asp-for="Edited" value="@Model.Edited" />
+                <input type="hidden" asp-for="Lent" value="@Model.Lent" />
+                <input type="hidden" asp-for="Notes" value="@Model.Notes" />
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+}

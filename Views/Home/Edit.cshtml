@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+@model MovieCollection.Models.Movie
+<!--Form for editing an existing movie record in the database-->
+
+<div class="text-center">
+    <h1 class="display-4">Edit a Movie Recommendation</h1>
+    <form asp-action="EditSave" method="post">
+        <input type="hidden" asp-for="MovieID" value="@Model.MovieID"/>
+        <label asp-for="Category">Category: <input asp-for="Category" value="@Model.Category" /></label><br />
+        <label asp-for="Title">Title: <input asp-for="Title" value="@Model.Title" /></label><br />
+        <label asp-for="Year">Year: <input asp-for="Year" value="@Model.Year" /></label><br />
+        <label asp-for="Director">Director: <input asp-for="Director" value="@Model.Director" /></label><br />
+        <label>
+            Rating:
+            <select asp-for="Rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+        </label><br />
+        <label asp-for="Edited">Edited: <input asp-for="Edited" value="@Model.Edited" /></label><br />
+        <label asp-for="Lent">Lent to: <input asp-for="Lent" value="@Model.Lent" /></label><br />
+        <label asp-for="Notes">Notes: <input asp-for="Notes" value="@Model.Notes" /></label><br />
+        <div asp-validation-summary="All"></div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

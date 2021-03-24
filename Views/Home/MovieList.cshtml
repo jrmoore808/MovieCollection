@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Recommended Movies";
+}
+
+@model IEnumerable<MovieCollection.Models.Movie>
+<!--Table that displays movies in the database-->
+
+<div class="text-center">
+    <h1 class="display-4">Received Recommendations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent to</th>
+                <th>Notes</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MovieCollection.Models.Movie x in Model)
+            {
+                <partial name="PartialList" model="x" />
+            }
+        </tbody>
+    </table>
+</div>
